@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>You're confirmed · Learning Break</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFF8E7; --card: #FFFFFF; --ink: #2D2A32; --soft: #6B6475; --border: #E9E2D0;
+      --good: #2EB872; --good-soft: #DDF6E9; --bad: #F25F5C; --bad-soft: #FDE4E3; --primary: #3A86FF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 24px 16px; background: var(--bg); color: var(--ink);
+      font-family: 'Andika', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    main {
+      width: 100%; max-width: 520px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 28px; padding: 36px 28px; text-align: center;
+    }
+    .badge {
+      width: 96px; height: 96px; margin: 0 auto 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--good-soft); color: var(--good);
+    }
+    .badge svg { width: 52px; height: 52px; }
+    .bad .badge { background: var(--bad-soft); color: var(--bad); }
+    .bad .tick, .mark { display: none; }
+    .bad .mark { display: block; }
+    h1 { font-size: 32px; line-height: 1.2; margin: 0 0 12px; }
+    p { font-size: 18px; line-height: 1.5; margin: 0 0 14px; }
+    .soft { color: var(--soft); font-size: 15px; }
+    .button {
+      display: inline-block; margin: 10px 0 8px; padding: 14px 30px; border-radius: 999px;
+      background: var(--primary); color: #FFFFFF; font-weight: 700; font-size: 18px; text-decoration: none;
+    }
+    footer { margin-top: 22px; font-size: 13px; color: var(--soft); }
+  </style>
+</head>
+<body>
+  <main id="page">
+    <div class="badge" aria-hidden="true">
+      <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 6v8"/><path d="M12 18.5v.01"/></svg>
+    </div>
+    <h1 id="title">You're confirmed</h1>
+    <p id="message">Your parent account is ready. Go back to the Learning Break app and sign in with your email and password.</p>
+    <a class="button" href="kidslock://">Open the app</a>
+    <p class="soft">The button works on the phone or tablet that has the app. You can close this page.</p>
+    <footer>© 2026 PrintForge Studios</footer>
+  </main>
+  <script>
+    // Supabase sends people here after they tap the confirmation link, adding sign-in tokens
+    // (or an error) to the address. This page needs neither, so it swaps them for a plain
+    // marker right away; the marker keeps the right message if the page is refreshed.
+    var found = new URLSearchParams(location.hash.replace(/^#/, '') + '&' + location.search.replace(/^\?/, ''));
+    var expired = found.has('error') || found.has('error_code') || found.has('expired');
+    if (location.hash || location.search) {
+      history.replaceState(null, '', location.pathname + (expired ? '?expired' : '?confirmed'));
+    }
+
+    if (expired) {
+      document.getElementById('page').classList.add('bad');
+      document.title = "This link didn't work · Learning Break";
+      document.getElementById('title').textContent = "This link didn't work";
+      document.getElementById('message').textContent =
+        'It may have expired or been used already. In the app, try signing in. If it says your email is not confirmed yet, ask it to send the email again.';
+    }
+  </script>
+</body>
+</html>
