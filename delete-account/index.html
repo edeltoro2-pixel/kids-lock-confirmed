@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src https://cyjsxvfaweommxlilbmt.supabase.co; base-uri 'none'; form-action 'none'">
+  <title>Delete your account · Learning Break</title>
+  <meta name="description" content="Delete a Learning Break parent account and all of its children's data.">
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="wrap">
+    <a class="brand" href="../privacy/">
+      <img src="../assets/icon.svg" alt="">
+      <div><strong>Learning Break</strong><span>by PrintForge Studios</span></div>
+    </a>
+
+    <main class="card">
+      <h1>Delete your account</h1>
+      <p>This page deletes a parent account for <strong>Learning Break</strong>, the learning-break app
+        for children by PrintForge Studios.</p>
+
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your email address and password.</li>
+        <li>Every child's nickname and grade.</li>
+        <li>Their synced settings and word lists.</li>
+      </ul>
+      <p>It happens right away and can't be undone. Copies in our hosting provider's backups and logs are
+        gone within 30 days. Each phone or tablet keeps its own settings, PIN and word list until you
+        remove the app from it.</p>
+
+      <section class="panel" aria-labelledby="here">
+        <h2 id="here" tabindex="-1">Delete it here</h2>
+        <noscript><p class="status bad">This form needs JavaScript. You can delete the account in the app
+          instead (see below), or email us.</p></noscript>
+        <p class="status bad" id="setup-problem" role="alert" hidden>This page can't reach the account
+          service right now. Delete the account in the app instead, or email us.</p>
+
+        <form id="sign-in" method="post" novalidate hidden>
+          <p>First sign in with your parent account.</p>
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" required>
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+          <div class="buttons"><button type="submit" id="sign-in-button">Sign in</button></div>
+          <p class="status bad" id="sign-in-problem" role="alert" hidden></p>
+        </form>
+
+        <form id="confirm" method="post" novalidate hidden>
+          <p>Signed in as <strong id="who"></strong>.</p>
+          <label class="check"><input type="checkbox" id="understand">
+            <span>I understand that this deletes the account and all of its children's data, and that it
+              can't be undone.</span></label>
+          <div class="buttons">
+            <button type="submit" class="danger" id="delete-button" disabled>Delete my account</button>
+            <button type="button" class="plain" id="cancel">Cancel</button>
+          </div>
+          <p class="status bad" id="delete-problem" role="alert" hidden></p>
+        </form>
+
+        <div id="done" hidden>
+          <p class="status good" role="status">Your account is deleted.</p>
+          <p>Learning Break still works on each device without an account.</p>
+        </div>
+      </section>
+
+      <h2>Or delete it in the app</h2>
+      <p><span class="path">Parent › enter your PIN › Parent settings › Account and sync › Delete
+        account</span>. Type your password and tap Delete my account.</p>
+
+      <h2>Can't sign in?</h2>
+      <p>If you forgot your password or never confirmed your email, write to
+        <a href="mailto:reactforgeai@gmail.com">reactforgeai@gmail.com</a> from the account's email address
+        and ask us to delete it. We'll delete it within 7 days and reply when it's done.</p>
+    </main>
+
+    <footer>
+      <nav aria-label="Learning Break pages">
+        <a href="../privacy/">Privacy policy</a>
+        <a href="./">Delete your account</a>
+      </nav>
+      © 2026 PrintForge Studios
+    </footer>
+  </div>
+  <script src="../assets/vendor/supabase-js-2.118.0.js"></script>
+  <script src="config.js"></script>
+  <script src="delete.js"></script>
+</body>
+</html>

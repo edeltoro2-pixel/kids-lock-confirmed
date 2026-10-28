@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Learning Break app icon: two pencils that form a pause sign. Source for
+       assets/images/icon.png (1024 px) and favicon.png (48 px). -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#5C9DFF"/>
+      <stop offset="0.6" stop-color="#3A86FF"/>
+      <stop offset="1" stop-color="#2C72E6"/>
+    </radialGradient>
+    <g id="pencil">
+      <path d="M-46 330H46L0 420Z" fill="#F6D9A8"/>
+      <path d="M-13.3 394H13.3L0 420Z" fill="#2D2A32"/>
+      <path d="M-46 150H-15.3V338Q-30.7 356-46 338Z" fill="#FFC233"/>
+      <path d="M-15.3 150H15.3V338Q0 356-15.3 338Z" fill="#FFD563"/>
+      <path d="M15.3 150H46V338Q30.7 356 15.3 338Z" fill="#F2A922"/>
+      <path d="M-44 128V96Q-44 74-22 74H22Q44 74 44 96V128Z" fill="#FF8FA3"/>
+      <rect x="-48" y="120" width="96" height="36" rx="6" fill="#C9D1DC"/>
+      <rect x="-48" y="131" width="96" height="4" fill="#A3AEBF"/>
+      <rect x="-48" y="143" width="96" height="4" fill="#A3AEBF"/>
+    </g>
+    <path id="sparkle" d="M0-40C7.2-7.2 7.2-7.2 40 0C7.2 7.2 7.2 7.2 0 40C-7.2 7.2-7.2 7.2-40 0C-7.2-7.2-7.2-7.2 0-40Z"/>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <use href="#pencil" x="188"/>
+  <use href="#pencil" x="324"/>
+  <use href="#sparkle" fill="#FFFFFF" transform="translate(414 118)"/>
+  <use href="#sparkle" fill="#FFFFFF" opacity="0.85" transform="translate(96 394) scale(0.5)"/>
+  <circle cx="440" cy="188" r="8" fill="#FFFFFF" opacity="0.8"/>
+</svg>
